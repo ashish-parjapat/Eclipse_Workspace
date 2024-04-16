@@ -1,0 +1,32 @@
+package load_or_register;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Mysqlconn {
+	
+	public static void main(String[]args) {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		String url="jdbc:mysql://localhost:3306/SQLPLUS";
+		String user="root";
+		String pwd="ashish0809";
+		
+		try {
+			Connection con= DriverManager.getConnection(url,user,pwd);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Connection Established");
+		
+	}
+
+}
